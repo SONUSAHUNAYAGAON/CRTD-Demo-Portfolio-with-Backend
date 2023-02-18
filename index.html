@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>CRTD/Hiremi</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="http://www.crtd.in/image/crtd1.jpeg"
+    />
+    <style>
+      #imgcard {
+        background-color: aqua;
+      }
+      .imgcard {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(1, 195, 220, 0.12) 0px -12px 30px,
+          rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+          rgba(7, 214, 237, 0.09) 0px -3px 5px;
+      }
+      .imggrid {
+        box-shadow: #f8f3f3f6 0px 54px 55px, #fcfdfdf5 0px -12px 30px,
+          rgba(250, 247, 247, 0.923) 0px 4px 6px, #fbf6f6ee 0px 12px 13px,
+          rgba(239, 245, 246, 0.967) 0px -3px 5px;
+        padding: 40px;
+      }
+      #footer {
+        margin: 2px;
+        box-shadow: rgba(245, 239, 239, 0.25) 0px 54px 55px,
+          rgba(240, 235, 235, 0.12) 0px -12px 30px,
+          rgba(240, 239, 239, 0.12) 0px 4px 6px,
+          rgba(232, 229, 229, 0.17) 0px 12px 13px,
+          rgba(217, 210, 210, 0.09) 0px -3px 5px;
+      }
+      .content::before {
+        position: absolute;
+        top: -10px;
+        left: 0px;
+        content: "";
+        background: url(https://sonusahunayagaon.github.io/GalaxyDonation.github.io/img/rect-top-left.svg);
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 70px;
+        background-size: 100% 100%;
+      }
+      .content::after {
+        position: absolute;
+        top: 50pxpx;
+        left: 500px;
+        content: "";
+        background: url(https://sonusahunayagaon.github.io/GalaxyDonation.github.io/img/rect-bottom-right.svg);
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 70px;
+        background-size: 100% 100%;
+      }
+      .content {
+        position: relative;
+        top: 20px;
+        left: 30px;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap");
+      .fontfooter {
+        font-family: "Shantell Sans", cursive;
+      }
+      .footerimg {
+        /* content: " ";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1000px;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.5; */
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.9;
+        margin-left: 10px;
+        margin-right: 10px;
+        color: aliceblue;
+        font-weight: bold;
+        background-color: aqua;
+        padding: 50px;
+        background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI50xJOKwA_7jypZcufV-aCd0rqXEudldh4mgCSWsPwW_fXGMDtgREPpPz88pBzpg-bbY&usqp=CAU)
+          no-repeat center center;
+        background-size: cover;
+      }
+      .footercolor {
+        background-color: hsl(180, 97%, 49%);
+      }
+      .btn-outline-info1:hover {
+        background-color: aqua !important;
+      }
+      .formimg {
+        background-color: rgb(62, 248, 248);
+        font-weight: bold;
+        border-radius: 7px;
+        height: 100px;
+        text-align: center;
+        align-items: center;
+        color: aliceblue;
+      }
+      .formimg span {
+        border-bottom: 2px solid #f8faf8;
+        font-size: 27px;
+      }
+      .form-details span{
+        border-bottom: 1px solid rgb(92, 89, 89);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <a class="navbar-brand justify-content-between" href="#"
+        ><img
+          src="data:image/png;base64,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"
+          alt="crtd"
+          width="50"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav float-right fontfooter">
+          <li class="nav-item active">
+            <a class="nav-link" href="#home" id="home"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#imgcard"> Galary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact"> Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Nav-Search-form -->
+      <form class="form-inline my-2 my-lg-0 float-right">
+        <input
+          class="form-control mr-sm-2 fontfooter"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-success btn-outline-info1 my-2 my-sm-0 fontfooter"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </nav>
+    <!-- Section  -->
+    <section>
+        <!-- Slider  -->
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              class="d-block w-100"
+              height="350"
+              src="https://images.pexels.com/photos/1212693/pexels-photo-1212693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="First slide"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              class="d-block w-100"
+              height="350"
+              src="https://images.pexels.com/photos/863963/pexels-photo-863963.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Second slide"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              class="d-block w-100"
+              src="https://images.pexels.com/photos/1563355/pexels-photo-1563355.jpeg?auto=compress&cs=tinysrgb&w=600"
+              height="350"
+              alt="Third slide"
+            />
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- Cards  -->
+      <div class="container mb-3 mt-5">
+        <div class="row">
+          <div class="col-sm-4 imggrid">
+            <div class="card" style="width: 18rem">
+              <img
+                class="card-img-top imggrid"
+                src="https://images.pexels.com/photos/1252811/pexels-photo-1252811.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <span><a href="#home">click here!</a></span>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <div class="col-sm-4 imggrid">
+            <div class="card" style="width: 18rem">
+              <img
+                class="card-img-top imggrid"
+                src="https://images.pexels.com/photos/1252811/pexels-photo-1252811.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <span><a href="#home">click here!</a></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 imggrid">
+            <div class="card" style="width: 18rem">
+              <img
+                class="card-img-top imggrid"
+                src="https://images.pexels.com/photos/1252811/pexels-photo-1252811.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <span><a href="#home">click here!</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- cards content two  -->
+      <div class="container mt-5">
+        <div class="row mb-3">
+          <div class="col-sm-5 rounded" id="imgcard">
+            <link rel="stylesheet" /><a
+              href="http://www.crtd.in/"
+              target="_blank"
+              ><img
+                class="imgcard"
+                src="https://images.pexels.com/photos/7396/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600"
+                width="400"
+                height="400"
+                alt="col-image"
+            /></a>
+          </div>
+          <div class="col-sm-6 content" id="about">
+            CRTD Technologies is a next-generation global technology company
+            that helps enterprises reimagine their businesses for the digital
+            age. Our technology products and services(Our services range from
+            Application services to a full ITES, Next Gen Technologies like
+            Mobility, Cloud & Big Data along with Machine Learning, AI. You can
+            take individual services on a standalone basis, or as part of a full
+            service-oriented solution) are built on four decades of innovation,
+            with a world-renowned management philosophy, a strong culture of
+            invention and risk-taking, and a relentless focus on customer
+            relationships.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Us -->
+    <div class="contact-form container justify-content-center mt-5">
+      <div class=" formimg mt-4 mb-5"><span class="pt-2 m-0 p-0 contact-border">Contact Us</span>
+    <h4 class="pb-4">Get the latest insights and research delivered straight to your inbox</h4></div>
+      <div class="row">
+        <div class="col-sm-6">
+        
+                       <p class="form-details"><span> Monday - Saturday  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10:30 AM - 7 PM</span></p> 
+                                    
+                        <p class="form-details"><span>Sunday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Closed </span></p>
+                                  <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                  </svg> &nbsp;&nbsp;+91 8815165433 </p>
+                                  <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+                                    <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                                  </svg> &nbsp;&nbsp; info@crtd.in </p>
+            
+            <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-central-south-asia" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM4.882 1.731a.482.482 0 0 0 .14.291.487.487 0 0 1-.126.78l-.291.146a.721.721 0 0 0-.188.135l-.48.48a1 1 0 0 1-1.023.242l-.02-.007a.996.996 0 0 0-.462-.04 7.03 7.03 0 0 1 2.45-2.027Zm-3 9.674.86-.216a1 1 0 0 0 .758-.97v-.184a1 1 0 0 1 .445-.832l.04-.026a1 1 0 0 0 .152-1.54L3.121 6.621a.414.414 0 0 1 .542-.624l1.09.818a.5.5 0 0 0 .523.047.5.5 0 0 1 .724.447v.455a.78.78 0 0 0 .131.433l.795 1.192a1 1 0 0 1 .116.238l.73 2.19a1 1 0 0 0 .949.683h.058a1 1 0 0 0 .949-.684l.73-2.189a1 1 0 0 1 .116-.238l.791-1.187A.454.454 0 0 1 11.743 8c.16 0 .306.084.392.218.557.875 1.63 2.282 2.365 2.282a.61.61 0 0 0 .04-.001 7.003 7.003 0 0 1-12.658.905Z"/>
+              </svg>&nbsp;&nbsp; BNest, Bhopal Smart City Development Center, near Natraj Petrol Pump, Sector A, Berkheda, Bhopal, Madhya Pradesh 462023</p>
+              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-central-south-asia" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM4.882 1.731a.482.482 0 0 0 .14.291.487.487 0 0 1-.126.78l-.291.146a.721.721 0 0 0-.188.135l-.48.48a1 1 0 0 1-1.023.242l-.02-.007a.996.996 0 0 0-.462-.04 7.03 7.03 0 0 1 2.45-2.027Zm-3 9.674.86-.216a1 1 0 0 0 .758-.97v-.184a1 1 0 0 1 .445-.832l.04-.026a1 1 0 0 0 .152-1.54L3.121 6.621a.414.414 0 0 1 .542-.624l1.09.818a.5.5 0 0 0 .523.047.5.5 0 0 1 .724.447v.455a.78.78 0 0 0 .131.433l.795 1.192a1 1 0 0 1 .116.238l.73 2.19a1 1 0 0 0 .949.683h.058a1 1 0 0 0 .949-.684l.73-2.189a1 1 0 0 1 .116-.238l.791-1.187A.454.454 0 0 1 11.743 8c.16 0 .306.084.392.218.557.875 1.63 2.282 2.365 2.282a.61.61 0 0 0 .04-.001 7.003 7.003 0 0 1-12.658.905Z"/>
+              </svg> &nbsp;&nbsp; Ecospace, Marathahalli - Sarjapur Outer Ring Rd, Devarabisanahalli, Bellandur, Bengaluru, Karnataka 560103</p
+                                >
+        </div>
+        <div class="col-sm-6">
+          <script src="https://desk.zoho.com/portal/api/feedbackwidget/823934000000607003?orgId=802018840&displayType=iframe"></script>
+          <iframe
+            id="zsfeedbackFrame"
+            width="890"
+            height="570"
+            name="zsfeedbackFrame"
+            scrolling="no"
+            allowtransparency="false"
+            frameborder="0"
+            border="0"
+            src="https://desk.zoho.com/support/fbw?formType=AdvancedWebForm&fbwId=edbsn26fbae5760824de01e834f9a02ed50b045621de750a6e4f517dc26f3a6173c1c&xnQsjsdp=edbsn9392701caebf67f142996e7e1d2a57f8&mode=showNewWidget&displayType=iframe"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- footer  -->
+    <footer class="mb-5 mt-5 text-center footerimg" id="footer">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-10">
+            <div class="row m-auto">
+              <div class="col-sm-4">
+                <h4>Services</h4>
+                <p>Web Development</p>
+                <p>Software Development</p>
+                <p>AI & ML</p>
+              </div>
+
+              <div class="col-sm-4">
+                <h4>Technologies</h4>
+                <p>jQuery</p>
+                <p>Python/Django</p>
+                <p>React.js</p>
+                <p>Node.js</p>
+              </div>
+              <div class="col-sm-4" id="contact">
+                <h4>Contact Us</h4>
+                <p>BNEST Smart city developement 462078</p>
+                <pre class="text-white text-left">
+Get the latest insights and research delivered straight to your inbox
+                    Monday - Saturday
+                    10:30 AM - 7 PM
+                    Sunday
+                    Closed
+                    +91 8815165433
+                    info@crtd.in
+                    Wyreflow BNest, Bhopal Smart City Development Center, near Natraj Petrol Pump, Sector A, Berkheda, Bhopal, Madhya Pradesh 462023
+                    Ecospace, Marathahalli - Sarjapur Outer Ring Rd, Devarabisanahalli, Bellandur, Bengaluru, Karnataka 560103</pre
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Company Copyrights -->
+    <div class="text-center footercolor text-white">
+      <marquee behavior="" direction="Left" loop="infinite">
+        <h3 class="fontfooter">
+          Copyright&copy; 2023 || All Rights reserved by Hiremi Pvt Ltd Bhopal
+        </h3></marquee
+      >
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
